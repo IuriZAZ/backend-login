@@ -9,7 +9,7 @@ const app = express()
 
 const User = mongoose.model('User', { nome: String, email: String, senha: String, senhaConfirm: String })
 
-mongoose.connect('mongodb+srv://Iuri:iurinm890@cluster0.ndtwj.mongodb.net/test')
+mongoose.connect('mongodb+srv://Iuri:admin123@cluster0.ndtwj.mongodb.net/test')
 
 app.use(require('cors')())
 
