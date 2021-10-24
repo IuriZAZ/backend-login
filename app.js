@@ -4,7 +4,7 @@ const mongoose = require('mongoose')
 const axios = require('axios').create({ baseURL: "http://localhost:3031" })
 
 var http = require('http')
-
+const PORT = process.env.PORT || 3031
 const app = express()
 
 const User = mongoose.model('User', { nome: String, email: String, senha: String, senhaConfirm: String })
@@ -48,5 +48,5 @@ app.delete('/usuario/remove/', async (req, res) => {
 })
 
 var server = http.createServer(app)
-server.listen(3031)
+server.listen(PORT)
 console.log("rodando na porta 3031")
