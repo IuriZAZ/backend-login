@@ -2,7 +2,6 @@ const { json } = require('express')
 const express = require('express')
 const mongoose = require('mongoose')
 const axios = require('axios').create({ baseURL: "https://api-node-oby.herokuapp.com/" })
-
 var http = require('http')
 
 const PORT = process.env.PORT || 3031
@@ -13,7 +12,6 @@ const User = mongoose.model('User', { nome: String, email: String, senha: String
 mongoose.connect('mongodb+srv://Iuri:admin123@cluster0.ndtwj.mongodb.net/test')
 
 app.use(require('cors')())
-
 app.use(express.json())
 
 app.get('/', (req, res) => {
