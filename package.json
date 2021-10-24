@@ -12,9 +12,9 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js"
+    "start": "node app"
   },
-  "author": "",
+  "author": "Oby",
   "license": "ISC",
-  "description": ""
+  "description": "Backend do login"
 }
