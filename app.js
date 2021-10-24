@@ -1,9 +1,10 @@
 const { json } = require('express')
 const express = require('express')
 const mongoose = require('mongoose')
-const axios = require('axios').create({ baseURL: "http://localhost:3031" })
+const axios = require('axios').create({ baseURL: "https://api-node-oby.herokuapp.com/" })
 
 var http = require('http')
+
 const PORT = process.env.PORT || 3031
 const app = express()
 
