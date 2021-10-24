@@ -42,7 +42,7 @@ app.get('/usuario/login/', async (req, res) => {
 })
 
 app.delete('/usuario/remove/', async (req, res) => {
-    const { nome, email, senha, senhaConfirm } = req.query
+    const { nome, email, senha, senhaConfirm } = req.body
     const usersDel = await User.remove(nome)
     res.status(202, 'Accepted').json(usersDel)
 })
