@@ -24,7 +24,6 @@ const userRoute = (app) => {
             }
         })
 
-
     app.route('/usuario/login/')
         .get(async (req, res) => {
             const { email, senha } = req.body
