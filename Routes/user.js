@@ -2,9 +2,9 @@ const mongoose = require('mongoose')
 const axios = require('axios').create({ baseURL: "http://localhost:3030/" })
 const User = require('../Models/mongo')
 
-const userRoute = (app) => {
+mongoose.connect('mongodb+srv://Iuri:admin123@cluster0.ndtwj.mongodb.net/test')
 
-    mongoose.connect('mongodb+srv://Iuri:admin123@cluster0.ndtwj.mongodb.net/test')
+const userRoute = (app) => {
 
     app.route('/usuario')
         .post((req, res) => {
