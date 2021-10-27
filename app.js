@@ -9,6 +9,7 @@ const PORT = process.env.PORT || 3030
 var http = require('http')
 
 app.use(bodyParser.urlencoded({ extended: false }))
+
 userRoute(app)
 
 app.get('/', (req, res) => {
@@ -17,4 +18,4 @@ app.get('/', (req, res) => {
 
 var server = http.createServer(app)
 server.listen(PORT)
-console.log("rodando na porta 3031")
+console.log("Rodando na porta: " + PORT)

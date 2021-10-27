@@ -1,11 +1,19 @@
 const mongoose = require('mongoose')
 const axios = require('axios').create({ baseURL: "http://localhost:3030/" })
-
+// const User = require('../Models/mongo')
 
 const userRoute = (app) => {
-    
-    const User = mongoose.model('User', { nome: String, email: String, senha: String, senhaConfirm: String })
+
     mongoose.connect('mongodb+srv://Iuri:admin123@cluster0.ndtwj.mongodb.net/test')
+
+    const schemaModel = new mongoose.Schema({
+        nome: { type: String, required: true },
+        email: { type: String, required: true },
+        senha: { type: String, required: true },
+        senhaConfirm: { type: String, required: true },
+    })
+
+    const User = mongoose.model('User', schemaModel)
 
     app.route('/usuario')
         .post((req, res) => {
