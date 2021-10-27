@@ -17,7 +17,6 @@ app.use(express.json())
 // mongoose.connect('mongodb+srv://Iuri:admin123@cluster0.ndtwj.mongodb.net/test')
 // app.use(require('cors')())
 
-
 app.get('/', (req, res) => {
     res.status(200, 'Ok').json('Backend rodando')
 })
