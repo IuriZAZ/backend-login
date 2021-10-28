@@ -1,4 +1,4 @@
-const userRoute = require('./Routes/user')
+const userRoute = require('./src/Routes/user')
 const { json } = require('express')
 const express = require('express')
 const bodyParser = require('body-parser')
