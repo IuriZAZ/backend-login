@@ -25,10 +25,9 @@ const userRoute = (app) => {
     app.route('/usuario/login/')
         .get(async (req, res) => {
             const { email, senha } = req.body
-            const usuarios = await User.find(email, senha)
-            res.status(200, 'Ok').json(usuarios)
+            const usuarios = await User.find({email, senha})
+            res.status(200, 'Ok').json({email})
         })
-
 
     app.route('/usuario/remove/')
         .delete(async (req, res) => {
