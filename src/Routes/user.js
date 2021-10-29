@@ -22,11 +22,11 @@ const userRoute = (app) => {
     app.route('/usuario/login/').get(async (req, res) => {
         const { email, senha } = req.body
         const usuarios = await User.find(email, senha)
-        if (!example) {
+        // if (!example) {
             res.status(200, 'Ok').json(usuarios)
-        } else {
+        // } else {
             res.status(401).json('Error my brother')
-        }
+        // }
     })
 
     app.route('/usuario/remove/')
