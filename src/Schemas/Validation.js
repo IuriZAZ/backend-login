@@ -1,6 +1,6 @@
 const mongoose = require("mongoose")
 const Yup = require("yup")
-const schemaModel = require("./Mongo/User")
+const User = require("./Mongo/User")
 
 const Controller = async (req, res) => {
 
@@ -12,22 +12,18 @@ const Controller = async (req, res) => {
     })
 
     if (!(await schema.isValid(req.body))) {
-        return res.status(400).json({ mensagem: 'Erro na validacao dos campos' });
+        return res.status(400).json({ mensagem: 'Erro na validacao dos campos' })
     }
 
-    const userExists = await User.findOne({ email: req.body.email });
+    const userExists = await User.findOne({ email: req.body.email })
 
     if (userExists) {
-        return res.status(400).json({ mensagem: 'Usuario ja existe.' });
+        return res.status(400).json({ mensagem: 'Usuario ja existe.' })
     }
 
-    const { nome, email, senha, senhaConfirm } = await User.create(req.body);
+    const { nome, email } = await User.create(req.body)
 
-    return res.status(201).json({ id, name, email });
-
-    if (!(await schema.isValid(req.body))) {
-        return res.status(400).json({ mensagem: 'Erro na validacao dos campos' });
-    }
+    return res.status(201).json({ nome, email })
 }
 
 module.exports = Controller;
