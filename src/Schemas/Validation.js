@@ -1,6 +1,6 @@
 const mongoose = require("mongoose")
 const Yup = require("yup")
-// const User = require("./Mongo/User")
+const User = require("./Mongo")
 
 const Controller = {
 
