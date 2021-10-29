@@ -12,13 +12,13 @@ const Controller = async (req, res) => {
     })
 
     if (!(await schema.isValid(req.body))) {
-        return res.status(400).json({ mensagem: 'Erro na validacao dos campos' })
+        return res.status(400).json({ mensagem: 'Erro na validação dos campos' })
     }
 
     const userExists = await User.findOne({ email: req.body.email })
 
     if (userExists) {
-        return res.status(400).json({ mensagem: 'Usuario ja existe.' })
+        return res.status(400).json({ mensagem: 'Usuário já existe no sistema' })
     }
 
     const { nome, email } = await User.create(req.body)
