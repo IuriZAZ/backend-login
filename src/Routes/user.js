@@ -4,7 +4,6 @@ const User = require('../Schemas/Mongo')
 
 mongoose.connect('mongodb+srv://Iuri:admin123@cluster0.ndtwj.mongodb.net/test')
 
-
 const userRoute = (app) => {
 
     app.route('/usuario')
@@ -23,9 +22,9 @@ const userRoute = (app) => {
         const { email, senha } = req.body
         const usuarios = await User.find(email, senha)
         // if (!example) {
-            res.status(200, 'Ok').json(usuarios)
+        res.status(200, 'Ok').json(usuarios)
         // } else {
-            res.status(401).json('Error my brother')
+        res.status(401).json('Error my brother')
         // }
     })
 

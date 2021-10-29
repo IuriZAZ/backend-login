@@ -7,7 +7,6 @@ const schemaModel = new mongoose.Schema({
     senhaConfirm: { type: String, required: true },
 })
 
-
 const User = mongoose.model('User', schemaModel)
 
 module.exports = User;
