@@ -17,5 +17,6 @@ app.get('/', (req, res) => {
 })
 
 var server = http.createServer(app)
+
 server.listen(PORT)
 console.log("Rodando na porta: " + PORT)
