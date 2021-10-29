@@ -12,9 +12,9 @@ const userRoute = (app) => {
             const newUser = User(req.body)
             if (nome != null && email != null && senha != null && senhaConfirm != null) {
                 newUser.save(req.body)
-                return res.status(201, 'Created').json(User)
+                return res.status(201).json(User)
             } else {
-                return res.status(400, 'Bad request').json('Erro no POST')
+                return res.status(400).json('Erro no POST')
             }
         })
 
@@ -22,9 +22,9 @@ const userRoute = (app) => {
         const { email, senha } = req.body
         const usuarios = await User.find(email, senha)
             .then((usuarios) => {
-                return res.status(200, 'Ok').json(usuarios)
+                return res.status(200).json(usuarios)
             }).catch((error) => {
-                return res.status(401).json('Erro no GET')
+                return res.status(400).json('Erro no GET')
             })
     })
 
@@ -33,9 +33,9 @@ const userRoute = (app) => {
             const { nome, email, senha, senhaConfirm } = req.body
             const usersDel = await User.remove(nome)
         }).then((usersDel) => {
-            return res.status(202, 'Accepted').json(usersDel)
+            return res.status(202).json(usersDel)
         }).catch((error) => {
-            return res.status(401).json('Erro no DELETE')
+            return res.status(400).json('Erro no DELETE')
         })
 }
 
