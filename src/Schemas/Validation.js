@@ -21,7 +21,7 @@ const Controller = async (req, res) => {
         return res.status(400).json({ mensagem: 'Usuario ja existe.' });
     }
 
-    const { id, name, email } = await User.create(req.body);
+    const { nome, email, senha, senhaConfirm } = await User.create(req.body);
 
     return res.status(201).json({ id, name, email });
 
