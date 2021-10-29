@@ -22,20 +22,17 @@ const userRoute = (app) => {
         const { email, senha } = req.body
         const usuarios = await User.find(email, senha)
             .then((usuarios) => {
-                return res.status(200).json(usuarios)
-            }).catch((error) => {
-                return res.status(400).json('Erro no GET')
+                res.status(200).json(usuarios)
+            }).catch((err) => {
+                res.status(400).json(err + "Erro no GET")
             })
     })
 
     app.route('/usuario/remove/')
         .delete(async (req, res) => {
             const { nome, email, senha, senhaConfirm } = req.body
-            const usersDel = await User.remove(nome)
-        }).then((usersDel) => {
-            return res.status(202).json(usersDel)
-        }).catch((error) => {
-            return res.status(400).json('Erro no DELETE')
+            const usersDel = await User.remove(nome, email, senha, senhaConfirm)
+            res.status(202).json(usersDel)
         })
 }
 
