@@ -9,7 +9,6 @@ const PORT = process.env.PORT || 3030
 var http = require('http')
 
 app.use(bodyParser.urlencoded({ extended: false }))
-
 userRoute(app)
 
 app.get('/', (req, res) => {
