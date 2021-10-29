@@ -1,12 +1,12 @@
 const mongoose = require('mongoose')
 const Router = require('express')
 const axios = require('axios').create({ baseURL: 'http://localhost:3030/' })
-const User = require('../Schemas/Mongo')
-const Controller = require('../Schemas/Validation')
+const Controller = require('../Schemas/Controllers/Register')
+const ControllerLog = require('../Schemas/Controllers/Login')
 
 mongoose.connect('mongodb+srv://Iuri:admin123@cluster0.ndtwj.mongodb.net/test')
 
-const app = new Router();
+const app = Router();
 
 const userRoute = (app) => {
 
@@ -21,7 +21,7 @@ const userRoute = (app) => {
         //         return res.status(400).json('Erro no POST')
         //     }
 
-    app.get('/usuario/login/', Controller.store)
+    app.get('/usuario/login/', ControllerLog.store)
     // .get(async (req, res) => {
     //     const { email, senha } = req.body
     //     const usuarios = await User.find(email, senha)
