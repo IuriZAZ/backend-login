@@ -21,7 +21,7 @@ const userRoute = (app) => {
         //         return res.status(400).json('Erro no POST')
         //     }
 
-    app.get('/usuario/login/', ControllerLog.store)
+    app.post('/usuario/login/', ControllerLog.store)
     // .get(async (req, res) => {
     //     const { email, senha } = req.body
     //     const usuarios = await User.find(email, senha)
