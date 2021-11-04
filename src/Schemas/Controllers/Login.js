@@ -1,3 +1,4 @@
+const jwt = require('jsonwebtoken')
 const mongoose = require('mongoose')
 const Yup = require("yup")
 const User = require("../Mongo")

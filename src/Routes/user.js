@@ -6,7 +6,7 @@ const ControllerLog = require('../Schemas/Controllers/Login')
 
 mongoose.connect('mongodb+srv://Iuri:admin123@cluster0.ndtwj.mongodb.net/test')
 
-const app = Router();
+const app = Router()
 
 const userRoute = (app) => {
 
