@@ -6,7 +6,7 @@ const Controller = {
 
     async store(req, res) {
         const schema = Yup.object().shape({
-            name: Yup.string().required(),
+            nome: Yup.string().required(),
             email: Yup.string().email().required(),
             senha: Yup.string().required().min(6),
             senhaConfim: Yup.string().required().min(6)
