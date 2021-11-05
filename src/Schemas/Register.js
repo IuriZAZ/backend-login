@@ -2,6 +2,8 @@ const mongoose = require("mongoose")
 const Yup = require("yup")
 const User = require("./Mongo")
 
+mongoose.connect('mongodb+srv://Iuri:admin123@cluster0.ndtwj.mongodb.net/test')
+
 const Controller = {
 
     async store(req, res) {

@@ -1,6 +1,8 @@
 const mongoose = require('mongoose')
 const Yup = require("yup")
 
+mongoose.connect('mongodb+srv://Iuri:admin123@cluster0.ndtwj.mongodb.net/test')
+
 const ControllerLog = {
   async store(req, res) {
     const schema = Yup.object().shape({
