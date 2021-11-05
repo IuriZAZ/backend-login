@@ -1,6 +1,6 @@
 const mongoose = require("mongoose")
 const Yup = require("yup")
-const User = require("../Mongo")
+const User = require("./Mongo")
 
 const Controller = {
 
@@ -9,7 +9,7 @@ const Controller = {
             nome: Yup.string().required(),
             email: Yup.string().email().required(),
             senha: Yup.string().required().min(6),
-            senhaConfim: Yup.string().required().min(6)
+            senhaConfirm: Yup.string().required().min(6)
         })
 
         if (!(await schema.isValid(req.body))) {

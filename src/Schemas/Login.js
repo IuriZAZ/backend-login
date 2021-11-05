@@ -1,10 +1,10 @@
-const jwt = require('jsonwebtoken')
 const mongoose = require('mongoose')
+const jwt = require('jsonwebtoken')
+const authConfig = require('../Controller/auth')
 const Yup = require("yup")
-const User = require("../Mongo")
 
 const ControllerLog = {
-  async store(req, res) {
+  async SessionStore(req, res) {
     const schema = Yup.object().shape({
       email: Yup.string().email().required(),
       senha: Yup.string().required(),
@@ -31,7 +31,7 @@ const ControllerLog = {
     return res.status(201).json({
       token: jwt.sign({ _id, email }, authConfig.secret, {
         expiresIn: authConfig.expiresIn,
-      })
+      }),
     })
   }
 }
