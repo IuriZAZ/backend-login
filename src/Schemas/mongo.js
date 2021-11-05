@@ -1,4 +1,5 @@
 const mongoose = require("mongoose")
+// https://blog.betrybe.com/desenvolvimento-web/yup/
 
 const schemaModel = new mongoose.Schema({
     nome: { type: String, required: true },
