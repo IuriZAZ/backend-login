@@ -1,5 +1,4 @@
 const mongoose = require('mongoose')
-const jwt = require('jsonwebtoken')
 const Yup = require("yup")
 
 const ControllerLog = {
@@ -13,7 +12,6 @@ const ControllerLog = {
       return res.status(400).json({ mensagem: 'Erro ao validar os campos' })
     }
 
-    console.log(req.body)
     const { email, senha } = req.body
 
     const User = await User.findOne({ email })
