@@ -1,11 +1,10 @@
 const mongoose = require('mongoose')
-const axios = require('axios').create({ baseURL: 'http://localhost:3030/' })
-// const bcrypt = require('bcryptjs')
+const axios = require('axios')
 const User = require('../Schemas/mongo')
 
 mongoose.connect('mongodb+srv://Iuri:admin123@cluster0.ndtwj.mongodb.net/test')
 
-// const passwordHash = 
+axios.create({ baseURL: 'http://localhost:3030/' })
 
 const userRoute = (app) => {
 
