@@ -4,7 +4,7 @@ const authConfig = require('../Controller/auth')
 const Yup = require("yup")
 
 const ControllerLog = {
-  async SessionStore(req, res) {
+  async store(req, res) {
     const schema = Yup.object().shape({
       email: Yup.string().email().required(),
       senha: Yup.string().required(),

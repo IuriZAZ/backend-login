@@ -12,7 +12,7 @@ const route = Router()
 
 const userRoute = (route) => {
 
-    route.post('/usuario', Controller.store)
+    route.post('/usuario/', Controller.store)
         // .post((req, res) => {
         //     const { nome, email, senha, senhaConfirm } = req.body
         //     const newUser = User(req.body)
@@ -23,7 +23,7 @@ const userRoute = (route) => {
         //         return res.status(400).json('Erro no POST')
         //     }
 
-    route.post('/usuario/login/', ControllerLog.SessionStore)
+    route.post('/usuario/login/', ControllerLog.store)
     // .get(async (req, res) => {
     //     const { email, senha } = req.body
     //     const usuarios = await User.find(email, senha)
