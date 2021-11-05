@@ -1,6 +1,5 @@
 const mongoose = require('mongoose')
 const jwt = require('jsonwebtoken')
-const authConfig = require('../Controller/auth')
 const Yup = require("yup")
 
 const ControllerLog = {
@@ -27,12 +26,13 @@ const ControllerLog = {
       return res.status(401).json({ mensagem: 'senha nao confere' })
     }
 
-    const { _id } = user
-    return res.status(201).json({
-      token: jwt.sign({ _id, email }, authConfig.secret, {
-        expiresIn: authConfig.expiresIn,
-      }),
-    })
+    //   const { _id } = user
+    //   return res.status(201).json({
+    //     token: jwt.sign({ _id, email }, authConfig.secret, {
+    //       expiresIn: authConfig.expiresIn,
+    //     }),
+    //   })
+    // }
   }
 }
 
