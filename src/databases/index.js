@@ -6,7 +6,7 @@ class Database {
   }
 
   mongo() {
-    this.mongoConnection = mongoose.connect(process.env.MONGO_URL, {
+    this.mongoConnection = mongoose.connect('mongodb+srv://admin:admin123@cluster0.ofjky.mongodb.net/test', {
       useNewUrlParser: true
     });
   }
