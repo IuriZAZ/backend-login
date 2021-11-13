@@ -1,13 +1,15 @@
-const mysql = require('mysql')
+const mysql = require('mysql');
 
 const connection = mysql.createConnection({
-    host: 'localhost',
+    host: 'localhost:3306',
     user: 'root',
-    password: 'numLembro',
+    password: 'Iurinm8900', /*Verificar*/
     database: 'bc_bsd'
 });
 
 connection.connect((err) => {
     if(err) throw err;
     console.log('Conectado no banco')
-})
+});
+
+module.exports = connection;
