@@ -1,4 +1,3 @@
-const mysql = require('mysql')
 const Sequelize = require('sequelize')
 const sequelize = new Sequelize('bc_bsd', 'root', 'oby123456', {
     host: 'localhost',
@@ -6,7 +5,9 @@ const sequelize = new Sequelize('bc_bsd', 'root', 'oby123456', {
 })
 
 sequelize.authenticate().then(() => {
-    console.log('Deu bom')
+    console.log('Conectado')
 }).catch((error) => {
     console.log(error)
 });
+
+module.exports = sequelize;
