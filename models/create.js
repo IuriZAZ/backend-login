@@ -1,7 +1,7 @@
 const mysql = require('mysql')
 const sequelize = require('./models')
 
-// ODS / Nota Fiscal - ENVIANDO INFORMAÇÕES ???
+// ODS / Nota Fiscal
 const ods = sequelize.define('servico', {
     dataEntrada: {
         type: sequelize.DATEONLY,
