@@ -3,22 +3,26 @@ const sequelize = require('./models')
 
 // ODS / Nota Fiscal
 const ods = sequelize.define('servico', {
-    dataEntrada: {
+    nome_usuario: {
+        type: sequelize.STRING,
+        allowNull: false
+    },
+    data_entrada: {
         type: sequelize.DATEONLY,
         allowNull: false
     },
-    dataSaida: {
+    data_saida: {
         type: sequelize.DATEONLY,
         allowNull: false
     },
     descricao: {
         type: sequelize.TEXT
     },
-    precoMobra: {
+    preco_mobra: {
         type: sequelize.DOUBLE,
         allowNull: false
     },
-    precoPeca: {
+    preco_peca: {
         type: sequelize.DOUBLE,
         defaultValue: '0'
     }
