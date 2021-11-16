@@ -1,31 +1,36 @@
 const mysql = require('mysql')
-const sequelize = require('./models')
+const database = require('./models')
 
 // ODS / Nota Fiscal
-const ods = sequelize.define('servico', {
+const ods_insert = database.define('servico', {
+    id_servico: {
+        type: Sequelize.INTEGER,
+        autoIncrement: true,
+        allowNull: false,
+        primaryKey: true
+    },
     nome_usuario: {
-        type: sequelize.STRING,
+        type: database.STRING,
         allowNull: false
     },
     data_entrada: {
-        type: sequelize.DATEONLY,
+        type: database.DATEONLY,
         allowNull: false
     },
     data_saida: {
-        type: sequelize.DATEONLY,
+        type: database.DATEONLY,
         allowNull: false
     },
-    descricao: {
-        type: sequelize.TEXT
-    },
     preco_mobra: {
-        type: sequelize.DOUBLE,
+        type: database.DOUBLE,
         allowNull: false
     },
     preco_peca: {
-        type: sequelize.DOUBLE,
+        type: database.DOUBLE,
         defaultValue: '0'
+    },
+    valor_total: {
+        type: database.INTERGER,
+        values: [preco_mobra + preco_peca]
     }
 })
-
-// Ver no manual sequelize os 'dataTypes' e oq cada um faz...
