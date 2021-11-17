@@ -1,6 +1,8 @@
 const mysql = require('mysql')
-const database = require('./models')
+const Sequelize = require('sequelize')
+const sequelize = require('./models')
 
-const ods_read = database.init({
-    
+
+const ods_read = Sequelize.init('read', {
+    // Começar a fazer o read -> 'get'
 })

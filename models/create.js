@@ -1,9 +1,9 @@
 const mysql = require('mysql')
 const Sequelize = require('sequelize')
-const database = require('./models')
+const sequelize = require('./models')
 
 
-const CreateDB = async () => {
+export default Database = async () => {
 
     // Table -> Servico
     const servico = await Sequelize.define('servico', {
@@ -62,5 +62,3 @@ const CreateDB = async () => {
         }
     })
 }
-
-module.exports = CreateDB;
