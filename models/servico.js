@@ -1,13 +1,13 @@
 const Sequelize = require('sequelize')
-const sequelize = require('../connect')
+const database = require('../connect')
+const Usuario = require('./usuario')
 
-
-const servico = sequelize.define('servico', {
+const Servico = database.define('servico', {
     id_servico: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
         allowNull: false,
-        primaryKey: true
+        primaryKey: true,
     },
     data_entrada: {
         type: Sequelize.DATE,
@@ -17,17 +17,17 @@ const servico = sequelize.define('servico', {
         type: Sequelize.DATE,
         allowNull: false
     },
-    descricao: {
-        type: Sequelize.STRING,
-    },
+    descricao: Sequelize.STRING,
+    preco_peca: Sequelize.DECIMAL,
     preco_mobra: {
         type: Sequelize.DECIMAL,
         allowNull: false
     },
-    preco_peca: {
-        type: Sequelize.DECIMAL,
-        defaultValue: '0'
-    },
 })
 
-module.exports = servico;
+Servico.belongsTo(Usuario, {
+    constraint: true,
+    foreignKey: 'idUsuario'
+})
+
+module.exports = Servico;

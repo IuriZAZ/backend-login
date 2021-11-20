@@ -1,30 +1,25 @@
 const Sequelize = require('sequelize')
-const sequelize = require('../connect')
-const servico = require('./servico')
+const database = require('../connect')
 
-const usuario = sequelize.define('usuario', {
-    id_usuario: {
+const Usuario = database.define('usuario', {
+    id: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
         allowNull: false,
         primaryKey: true,
-        references: {
-            model: 'servicos',
-            key: 'id_servico',
-        }
     },
-    nome_usuario: {
+    nome: {
         type: Sequelize.STRING,
         allowNull: false
     },
-    email_usuario: {
+    email: {
         type: Sequelize.STRING,
         allowNull: false
     },
-    senha_usuario: {
+    senha: {
         type: Sequelize.STRING,
         allowNull: false
-    }
+    },
 })
 
-module.exports = usuario;
+module.exports = Usuario;

@@ -1,39 +1,49 @@
-const express = require('express')
-const sequelize = require('./connect')
-const servico = require('./models/servico')
-const usuario = require('./models/usuario')
+// const express = require('express')
 
-const app = express()
+// const app = express()
 
 // Create
-app.post('/usuarios/', async (req, res) => {
-    await sequelize.sync();
-    const novoServico = servico.create({
-        data_entrada: '2021-05-20',
-        data_saida: '2021/05/29',
-        descricao: 'MacBook Pro não liga',
-        preco_mobra: '230',
-        preco_peda: '150'
+// app.post('/usuarios/', async (req, res) => {
+(async () => {
+    const database = require('./connect')
+    const Servico = require('./models/servico')
+    const Usuario = require('./models/usuario')
+
+    await database.sync({force: true});
+
+    const novoUsuario = await Usuario.create({
+        nome: 'Matiello',
+        email: 'irui@gmail.com',
+        senha: '654321',
     })
 
-    const novoUsuario = usuario.create({
-        id_servico: 3,
-        nome_usuario: 'Tony',
-        email_usuario: 'tony@gmail.com',
-        senha_usuario: '000000'
+    const novoServico = await Servico.create({
+        data_entrada: '2021-06-26',
+        data_saida: '2021/06/29',
+        descricao: 'MacBook Pro com problema na tela',
+        preco_mobra: '679',
+        preco_peca: '220',
+        idUsuario: novoUsuario.id
     })
 
-    console.log(novoUsuario)
-})
+    console.log(novoServico)
+})();
+    // })
 
-// Read
-app.get('/usuarios/login', async (req, res) => {
-    await sequelize.sync();
-    
+    // Read
+    // app.get('/usuarios/login', async (req, res) => {
+    // (async () => {
+    //     const database = require('./connect')
+    //     const Servico = require('./models/servico')
+    //     const Usuario = require('./models/usuario')
 
-    const services = servico.findByPk(2)
-    console.log(services)
+    //     await database.sync();
 
-    const users = usuario.findByPk(3)
-    console.log(users)
-})
+    //     const services = await Servico.findByPk(1)
+    //     const cliente = await services.getUsuario()
+
+    //     console.log(cliente.nome)
+
+    //     // const users = Usuario.findByPk(1)
+    //     // console.log(users)
+    // })
