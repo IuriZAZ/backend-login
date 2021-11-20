@@ -1,5 +1,5 @@
 (async () => {
-
+    // Tentativa de ForeignKey -> Testar
     const Sequelize = require('sequelize')
     const sequelize = require('../connect')
     const servico = require('./servico')
