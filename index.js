@@ -29,6 +29,7 @@ app.post('/usuarios/', async (req, res) => {
 // Read
 app.get('/usuarios/login', async (req, res) => {
     await sequelize.sync();
+    
 
     const services = servico.findByPk(2)
     console.log(services)
