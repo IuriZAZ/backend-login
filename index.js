@@ -13,10 +13,8 @@ app.use(express.json())
 const usuarioCadastrado = app.get(async (req, res) => {
 
     await database.sync();
-    const users = await Usuario.findAll();
-
-    // Funcionando
-    console.log(users)
+    
+    await Usuario.findAll();
 
 })
 
@@ -39,7 +37,7 @@ app.post('/usuarios/', async (req, res) => {
     } else {
 
         return await novoUsuario
-        
+
     }
 })
 
