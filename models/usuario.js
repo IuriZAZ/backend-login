@@ -6,19 +6,24 @@ const Usuario = database.define('usuario', {
         type: Sequelize.INTEGER,
         autoIncrement: true,
         allowNull: false,
-        primaryKey: true,
+        primaryKey: true
     },
     nome: {
+        isUppercase: true, 
         type: Sequelize.STRING,
         allowNull: false
     },
     email: {
+        isEmail: true,
         type: Sequelize.STRING,
         allowNull: false
     },
     senha: {
+        isUppercase: true, 
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: false,
+        min: 6,
+        max: 16
     },
 })
 

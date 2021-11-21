@@ -7,27 +7,34 @@ const Servico = database.define('servico', {
         type: Sequelize.INTEGER,
         autoIncrement: true,
         allowNull: false,
-        primaryKey: true,
+        primaryKey: true
     },
     data_entrada: {
         type: Sequelize.DATE,
-        allowNull: false
+        allowNull: false,
+        isNumeric: true
     },
     data_saida: {
         type: Sequelize.DATE,
-        allowNull: false
+        allowNull: false,
+        isNumeric: true
     },
     descricao: Sequelize.STRING,
-    preco_peca: Sequelize.DECIMAL,
+    preco_peca: {
+        type: Sequelize.DECIMAL,
+        defaultValue: '0',
+        isNumeric: true
+    },
     preco_mobra: {
         type: Sequelize.DECIMAL,
-        allowNull: false
+        allowNull: false,
+        isNumeric: true
     },
 })
 
 Servico.belongsTo(Usuario, {
     constraint: true,
-    foreignKey: 'idUsuario'
+    foreignKey: 'id'
 })
 
 module.exports = Servico;
