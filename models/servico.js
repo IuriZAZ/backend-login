@@ -9,6 +9,10 @@ const Servico = database.define('servico', {
         allowNull: false,
         primaryKey: true
     },
+    produto: {
+        type: Sequelize.TEXT,
+        allowNull: false
+    },
     data_entrada: {
         type: Sequelize.DATE,
         allowNull: false,
