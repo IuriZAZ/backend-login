@@ -21,7 +21,10 @@ app.get('/users/', async (req, res) => {
 
     await database.sync();
 
-    res.json(await Usuario.findAll()).status(200);
+    res.json(
+        await Usuario.findAll()
+    )
+    res.status(200);
 
 })
 
@@ -40,13 +43,14 @@ app.post('/usuarios/', async (req, res) => {
     await database.sync();
 
     const novoUsuario = await Usuario.create({
-        nome: 'Matiello',
-        email: 'iuri@gmail.com',
+        nome: 'Cardoso',
+        email: 'amon.ra@gmail.com',
         senha: 'oby123456',
     })
 
-    res.json(novoUsuario).status(201, 'Created')
+    const {nome, email, senha} = req.body
 
+    res.json(req.body)
     // Validando cadastro do Usuario
     // if (novoUsuario == usuarioCadastrado) {
     //     return res.json('Usuário já existe').status(400)
