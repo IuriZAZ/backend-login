@@ -39,10 +39,10 @@ app.post('/usuarios/', async (req, res) => {
 
     await database.sync();
 
-    let novoUsuario = await Usuario.create({
-        nome: 'Tony',
-        email: 'abertolim@gmail.com',
-        senha: '656565',
+    const novoUsuario = await Usuario.create({
+        nome: 'Matiello',
+        email: 'iuri@gmail.com',
+        senha: 'oby123456',
     })
 
     res.json(novoUsuario).status(201, 'Created')
@@ -60,21 +60,17 @@ app.post('/servicos/', async (req, res) => {
 
     await database.sync()
 
-    const novoUsuario = req.body
+    const novoServico = await Servico.create({
+        produto: 'Macbook Pro',
+        data_entrada: '2021-07-29',
+        data_saida: '2021/07/31',
+        descricao: 'Problema no SSD',
+        preco_mobra: '780',
+        preco_peca: '230',
+        id: novoUsuario.id
+    })
 
-    res.json(
-        // Dados enraizados
-        await Servico.create({
-            produto: 'Macbook Pro',
-            data_entrada: '2021-07-29',
-            data_saida: '2021/07/31',
-            descricao: 'Problema no SSD',
-            preco_mobra: '780',
-            preco_peca: '230',
-            id: novoUsuario.id
-        })
-    )
-    res.status(200, 'Created')
+    res.json(novoServico).status(200, 'Created')
 })
 
 var server = http.createServer(app)
