@@ -18,26 +18,30 @@ app.get('/', (req, res) => {
 
 // Read for Users
 app.get('/users/', async (req, res) => {
-
+    
     await database.sync();
-
+    
     res.json(await Usuario.findAll())
     res.status(200);
-
+    
 })
 
 // Read for Services
 app.get('/services/', async (req, res) => {
-
+    
     await database.sync();
 
     res.json(await Servico.findAll()).status(200);
-
+    
 })
+
+// Fazer um get ALL aqui
+app.get('/')
 
 // Create User/Service
 app.post('/register/', async (req, res) => {
 
+    // Tirar o {force: true} depois dos testes;
     await database.sync({ force: true });
 
     const novoUsuario = await Usuario.create({
@@ -58,6 +62,7 @@ app.post('/register/', async (req, res) => {
 
     res.json(novoUsuario).status(201)
 
+    // Não mexe aqui ;)
     // Validando cadastro do Usuario
     // if (novoUsuario == usuarioCadastrado) {
     //     res.json('Cadastro já existe').status(400)
@@ -66,7 +71,8 @@ app.post('/register/', async (req, res) => {
     // }
 })
 
-// Não mexer aqui
+
+// Não mexe aqui também :)
 // app.post('/servicos/', async (req, res) => {
 
 //     await database.sync()
