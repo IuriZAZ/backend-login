@@ -36,7 +36,9 @@ app.get('/services/', async (req, res) => {
 })
 
 // Fazer um get ALL aqui
-app.get('/')
+// app.get('/', (req, res) => {
+//     res.json()
+// })
 
 // Create User/Service
 app.post('/register/', async (req, res) => {
