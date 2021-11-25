@@ -11,19 +11,17 @@ const app = express()
 
 app.use(express.json())
 
-// URL default
+// Default URL
 app.get('/', (req, res) => {
     res.json('Sequelize rodando').status(200)
 })
 
-// Read for User
+// Read for Users
 app.get('/users/', async (req, res) => {
 
     await database.sync();
 
-    res.json(
-        await Usuario.findAll()
-    )
+    res.json(await Usuario.findAll())
     res.status(200);
 
 })
@@ -37,32 +35,16 @@ app.get('/services/', async (req, res) => {
 
 })
 
-// Create User
-app.post('/usuarios/', async (req, res) => {
+// Create User/Service
+app.post('/register/', async (req, res) => {
 
-    await database.sync();
+    await database.sync({ force: true });
 
     const novoUsuario = await Usuario.create({
         nome: 'Cardoso',
         email: 'amon.ra@gmail.com',
         senha: 'oby123456',
     })
-
-    const {nome, email, senha} = req.body
-
-    res.json(req.body)
-    // Validando cadastro do Usuario
-    // if (novoUsuario == usuarioCadastrado) {
-    //     return res.json('Usuário já existe').status(400)
-    // } else {
-    //     return await novoUsuario
-    // }
-})
-
-// Create a Service
-app.post('/servicos/', async (req, res) => {
-
-    await database.sync()
 
     const novoServico = await Servico.create({
         produto: 'Macbook Pro',
@@ -74,8 +56,33 @@ app.post('/servicos/', async (req, res) => {
         id: novoUsuario.id
     })
 
-    res.json(novoServico).status(200, 'Created')
+    res.json(novoUsuario).status(201)
+
+    // Validando cadastro do Usuario
+    // if (novoUsuario == usuarioCadastrado) {
+    //     res.json('Cadastro já existe').status(400)
+    // } else {
+    //     res.json(novoUsuario)
+    // }
 })
+
+// Não mexer aqui
+// app.post('/servicos/', async (req, res) => {
+
+//     await database.sync()
+
+//     const novoServico = await Servico.create({
+//         produto: 'Macbook Pro',
+//         data_entrada: '2021-07-29',
+//         data_saida: '2021/07/31',
+//         descricao: 'Problema no SSD',
+//         preco_mobra: '780',
+//         preco_peca: '230',
+//         id: novoUsuario.id
+//     })
+
+//     res.json(novoServico).status(201)
+// })
 
 var server = http.createServer(app)
 server.listen(PORT)
